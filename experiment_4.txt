@@ -46,3 +46,18 @@ db.Products.find(
     { reviews: { $elemMatch: { rating: { $gt: 4 } } } }
 ).pretty()
 
+
+db.Products.find(
+    { name: "Smartphone" },
+    { reviews: { $slice: 1 } }
+).pretty()
+
+
+db.Products.find(
+    { name: "Laptop" },
+    {
+        name: 1,
+        features: { $slice: 2 },
+        reviews: { $elemMatch: { rating: 5 } }
+    }
+).pretty()
