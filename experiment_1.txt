@@ -2,6 +2,7 @@ Experiment 1
 
 use newDB
 
+
 db.ProgBooks.insertMany([
     { title: "Clean Code",author: "Robert",category: "SD", year: 2008 },
     { title: "JavaScript: "Doug",category: "JS", year: 2008 },
@@ -9,6 +10,7 @@ db.ProgBooks.insertMany([
     { title: "Algorithms",author: "Thomas",category: "Algo", year: 2009 },
     { title: "Python",author: "Eric",category: "Python", year: 2015 }
 ])
+
 
 db.ProgBooks.find({year:2008}).pretty()
 
@@ -34,26 +36,32 @@ db.ProgBooks.insertOne({
     year: 1999
 })
 
-db.ProgrammingBooks.updateOne(
+
+db.ProgBooks.updateOne(
     { title: "Clean Code: A Handbook of Agile Software Craftsmanship" },
     { $set: { author: "Robert C. Martin (Uncle Bob)" } }
 )
 
 
- db.ProgrammingBooks.updateMany(
+ db.ProgBooks.updateMany(
     { year: { $lt: 2010 } },
     { $set: { category: "Classic Programming Books" } }
 )
 
+
 db.ProgBooks.find().pretty()
 
 
-db.ProgrammingBooks.deleteOne({ title: "JavaScript" })
+db.ProgBooks.deleteOne({ title: "JavaScript" })
 
-db.ProgrammingBooks.deleteMany({ year: { $lt: 1995 } })
 
-db.ProgrammingBooks.deleteMany({})
+db.ProgBooks.deleteMany({ year: { $lt: 1995 } })
 
-db.ProgrammingBooks.find({}, { title: 1, author: 1 } )
 
-db.ProgrammingBooks.find({}, {year: 0})
+db.ProgBooks.deleteMany({})
+
+
+db.ProgBooks.find({}, { title: 1, author: 1 } )
+
+
+db.ProgBooks.find({}, {year: 0})
