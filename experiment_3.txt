@@ -16,13 +16,18 @@ db.Employees.find({ department: { $eq: "Engineering" } }).pretty()
 
 db.Employees.find({ department: { $ne: "HR" } }).pretty()
 
+
 db.Employees.find({ age: { $gt: 30 } }).pretty()
+
 
 db.Employees.find({ salary: { $lt: 70000 } }).pretty()
 
+
 db.Employees.find({ joinDate: { $gte: new Date("2018-01-01") }}).pretty()
 
+
 db.Employees.find({ age: { $lte: 28 } }).pretty()
+
 
 db.Employees.find({
     $and: [
@@ -31,6 +36,7 @@ db.Employees.find({
     ]
 }).pretty()
 
+
 db.Employees.find({
     $or: [
         { department: "HR" },
@@ -38,11 +44,13 @@ db.Employees.find({
     ]
 }).pretty()
 
+
 db.Employees.find({
     department: {
         $not: { $eq: "Engineering" }
     }
 }).pretty()
+
 
 db.Employees.find({
     $nor: [
@@ -112,17 +120,21 @@ db.Devices.insertMany([
     { name: "Device E", status: 7 } 
 ])
 
+
 db.Devices.find({
     status: { $bitsAllSet: [0, 2] }
 }).pretty()
+
 
 db.Devices.find({
     status: { $bitsAnySet: [1] }
 }).pretty()
 
+
 db.Devices.find({
     status: { $bitsAllClear: [1, 3] }
 }).pretty()
+
 
 db.Devices.find({
     status: { $bitsAnyClear: [0] }

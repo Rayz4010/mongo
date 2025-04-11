@@ -12,6 +12,7 @@ db.Movies.insertMany([
 
 db.Movies.find({}, { title: 1, director: 1 })
 
+
 db.Movies.find({}, { title: 1, director: 1, _id: 0 })
 
 
