@@ -1,0 +1,27 @@
+Experiment 9
+
+#in cmd
+mongoimport --db=kannadaMoviesDB --collection=catalog --file=c:\users\Admin\Downloads\kan_movies.csv --type=csv --fields="name","year","duration","rating","genre","lang"
+
+use kannadaMoviesDB 
+
+show collections 
+
+db.catalog.countDocuments() 
+
+db.catalog.createIndex({name: "text", genre: "text"}) 
+
+db.catalog.find({$text: {$search: "maga"}})
+db.catalog.find({$text: {$search: "raju"}})
+db.catalog.find({$text: {$search: "tappida Maga"}})
+
+
+(b)
+
+use kannadaMoviesDB1
+
+db.catalog.createIndex({ name: "text", description: "text", genre: "text" })
+
+db.catalog.find({ $text: { $search: "crime romance -action" }, year:2021 } )
+
+db.catalog.find({$text: {$search: "maga -da maga"}})
