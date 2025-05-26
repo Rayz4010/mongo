@@ -82,3 +82,19 @@ db.restaurants.aggregate([
     {
         $skip: 1
 } ]).pretty()
+
+
+
+'''
+Output
+{
+  "restaurant": "Biryani House",
+  "averageRating": 4.5,
+  "totalReviews": 2
+}
+{
+  "restaurant": "Curry Palace",
+  "averageRating": 4.5,
+  "totalReviews": 2
+}
+'''
